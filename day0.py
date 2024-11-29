@@ -9,7 +9,8 @@ def read_input_file(file_name: str) -> list:
 
 def compute_part_one(file_name: str) -> int:
     inputs = read_input_file(file_name)
-    print(inputs)
+    print(inputs[:10])
+    print(sum(inputs))
     return 1
 
 

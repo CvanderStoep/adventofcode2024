@@ -6,14 +6,19 @@ def read_input_file(file_name: str) -> list:
 
 
 def process_input(inputs: list) -> (list, list):
-    left = []
-    right = []
-    for line in inputs:
-        left_number, right_number = map(int, line.split())
-        left.append(left_number)
-        right.append(right_number)
+    left, right = zip(*(map(int, line.split()) for line in inputs))
+    return list(left), list(right)
 
-    return left, right
+
+# def process_input(inputs: list) -> (list, list):
+#     left = []
+#     right = []
+#     for line in inputs:
+#         left_number, right_number = map(int, line.split())
+#         left.append(left_number)
+#         right.append(right_number)
+#
+#     return left, right
 
 
 def calc_distance(left: list, right: list) -> int:
@@ -50,3 +55,4 @@ def compute_part_two(file_name: str) -> int:
 if __name__ == '__main__':
     print(f"Part I: {compute_part_one('input/input1.txt')}")
     print(f"Part II: {compute_part_two('input/input1.txt')}")
+

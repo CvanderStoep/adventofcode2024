@@ -24,14 +24,10 @@ def check_valid_list(level: list) -> bool:
 
 
 def check_valid_list_extended(level: list) -> bool:
-
     for i in range(len(level)):
         level_subset = level[:]
         level_subset.pop(i)
-        differences = [level_subset[i] - level_subset[i - 1] for i in range(1, len(level_subset))]
-        all_between_1_and_3 = all(1 <= x <= 3 for x in differences)
-        all_between_minus1_and_minus3 = all(-3 <= x <= -1 for x in differences)
-        if all_between_1_and_3 or all_between_minus1_and_minus3:
+        if check_valid_list(level_subset):
             return True
 
     return False

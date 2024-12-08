@@ -1,45 +1,12 @@
-import itertools
-
-
-def endless_sequence(input_list):
-    for number in itertools.cycle(input_list):
-        yield number
-
-
-# Example usage
-input_list = [(-1, 0), (0, 1), (1, 0), (0, -1)]
-sequence = endless_sequence(input_list)
-
-# Print the first 20 numbers in the endless sequence
-# for _ in range(20):
-#     print(next(sequence))
-
-for n in range(10):
-    print(input_list[n % 4])
-
-def find_symbol_location(grid, symbol):
-    locations = []
-    for i, row in enumerate(grid):
-        for j, element in enumerate(row):
-            if element == symbol:
-                locations.append((i, j))
-    return locations
-
-# Example usage
-grid = [
-    ['.', '.', '.', '#', '.', '.', '.', '.', '.', '.'],
-    ['.', '.', '.', '.', '.', '.', '.', '.', '#', '.'],
-    ['.', '.', '.', '.', '.', '.', '.', '.', '.', '.'],
-    ['.', '.', '#', '.', '.', '.', '.', '.', '.', '.'],
-    ['.', '.', '.', '.', '.', '.', '#', '.', '.', '.'],
-    ['.', '.', '.', '.', '.', '.', '.', '.', '.', '.'],
-    ['.', '#', '.', '.', '^', '.', '.', '.', '.', '.'],
-    ['.', '.', '.', '.', '.', '.', '.', '.', '#', '.'],
-    ['#', '.', '.', '.', '.', '.', '.', '.', '.', '.'],
-    ['.', '.', '.', '.', '.', '.', '.', '.', '#', '.']
+# Example: Flattening a 2D list
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
 ]
-symbol = '^'
-locations = find_symbol_location(grid, symbol)
-print(f'The locations of the symbol "{symbol}" are: {locations}')
-# grid[i][j]
-# i is row index, j is column index
+flattened = [element for row in matrix for element in row]
+print(flattened)  # Output: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+# Example: Generating pairs of numbers
+pairs = [(x, y) for x in range(3) for y in range(3)]
+print(pairs)  # Output: [(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]

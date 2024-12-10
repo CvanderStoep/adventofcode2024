@@ -28,7 +28,7 @@ def calculate_antinodes(antenna1, antenna2) -> list:
     return antinodes
 
 
-def calculate_antinodes_two(antenna1, antenna2, grid) -> list:
+def calculate_antinodes_part_two(antenna1, antenna2, grid) -> list:
     difference = tuple_difference(antenna2, antenna1)
     gcd_ = math.gcd(difference[0], difference[1])  # reduce for example vector (4,2) to (2,1)
     difference = (int(difference[0] / gcd_), int(difference[1] / gcd_))
@@ -114,7 +114,7 @@ def compute_part_two(file_name: str) -> int:
         combinations = generate_combinations(locations)
         for antenna1, antenna2 in combinations:
 
-            antinode_list = calculate_antinodes_two(antenna1, antenna2, grid)
+            antinode_list = calculate_antinodes_part_two(antenna1, antenna2, grid)
             for antinode in antinode_list:
                 antinodes.add(antinode)
 

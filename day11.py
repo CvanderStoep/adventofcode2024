@@ -7,8 +7,6 @@ def read_input_file(file_name: str) -> list:
     with open(file_name) as f:
         content = f.read().split()
 
-    # content = list(map(int, content))
-
     return content
 
 
@@ -41,7 +39,6 @@ def apply_rules(stones: list) -> list:
 @lru_cache(maxsize=1024)
 # Issue: not clear why this is still slow, used memoization instead (see next code calc_stone_length_memo)
 # Solved by increasing the maxsize
-
 def calc_stone_length(stone: str, number: int) -> int:
     if number == 0:
         return 1
@@ -71,11 +68,9 @@ def compute_part_one(file_name: str) -> int:
     stones = read_input_file(file_name)
     for i in (range(1, 26)):
         stones = apply_rules(stones)
-        # print(f'after {i} blinks:')
-        # print(stones)
     print(f'{len(stones)= }')
 
-    return 1
+    return len(stones)
 
 
 def compute_part_two(file_name: str) -> int:
@@ -84,12 +79,10 @@ def compute_part_two(file_name: str) -> int:
     total_length = 0
     for stone in stones:
         l = calc_stone_length(stone, number_of_blinks)
-        # l = calc_stone_length_memo(stone, number_of_blinks)
-        print(f'{l= }')
         total_length += l
 
     print(f'{total_length= }')
-    return 1
+    return total_length
 
 
 if __name__ == '__main__':

@@ -1,41 +1,23 @@
-import numpy as np
-class Point:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
+from sympy import symbols, Eq, solve
 
-    def __add__(self, other):
-        return Point(self.x + other.x, self.y + other.y)
+# Define the symbols
+A, B = symbols('A B')
 
-    def __sub__(self, other):
-        return Point(self.x - other.x, self.y - other.y)
+# Define the equations
+eq1 = Eq(26*A + 67*B, 10000000012748)
+eq2 = Eq(66*A + 21*B, 10000000012176)
 
-    def __repr__(self):
-        return f"Point({self.x}, {self.y})"
+# Solve the system of equations
+solution = solve((eq1, eq2), (A, B))
 
+# Extract the solutions
+A_value = solution[A]
+B_value = solution[B]
 
-# Example usage
-point1 = Point(3, 5)
-point2 = Point(2, 4)
+print(solution)
 
-sum_points = point1 + point2
-diff_points = point1 - point2
-
-print("Sum of points:", sum_points)  # Output: Point(5, 9)
-print("Difference of points:", diff_points)  # Output: Point(1, 1)
-
-print(point1.x)
-
-
-# Example coordinates
-coord1 = np.array([3, 5])
-coord2 = np.array([2, 4])
-
-# Direct addition of NumPy arrays
-result = coord1 + coord2
-
-print("Sum of coordinates:", result)  # Output: [5 9]
-print(result[0])
-x, y = result
-print(y)
-print(y == int(y))
+# Check if the solutions are integers
+if A_value.is_integer and B_value.is_integer:
+    print(f'Integer Solutions: A = {int(A_value)}, B = {int(B_value)}')
+else:
+    print('No integer solutions found.')

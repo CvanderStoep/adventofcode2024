@@ -11,7 +11,7 @@ for sy in range(len(g)):
     for sx in range(len(g[0])):
         if seen[sy][sx]:
             continue
-
+        print(sx, sy, g[sy][sx])
         q = [(sx, sy)]
         area = 0
         sides = set()
@@ -35,11 +35,13 @@ for sy in range(len(g)):
                     continue
 
                 q.append((nx, ny))
-
+        print(sides)
         sides = {
             (x, y, d) for x, y, d in sides
             if (x - (d >= 2), y - (d < 2), d) not in sides
         }
+        print(sides)
+        print(len(sides))
 
         r += area * len(sides)
 

@@ -1,4 +1,7 @@
 # https://github.com/TimHuisman1703/AdventOfCode/blob/master/2024/Day%2016/aoc16_1.py
+""""
+priority queue, heap, map, maze, shortest route, cheapest route
+"""
 
 file = open("input\input16.txt")
 g = file.read().split("\n")

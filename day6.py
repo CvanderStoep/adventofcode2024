@@ -2,6 +2,8 @@ import itertools
 import copy
 from tqdm import tqdm
 
+def add_tuples(tuple1, tuple2):
+    return tuple([a + b for a, b in zip(tuple1, tuple2)])
 
 
 def read_input_file(file_name: str) -> list:
@@ -16,10 +18,6 @@ def find_symbol_location(grid, symbol):
         for j, element in enumerate(row):
             if element == symbol:
                 return i, j
-
-
-def add_tuples(tuple1, tuple2):
-    return tuple([a + b for a, b in zip(tuple1, tuple2)])
 
 
 def direction_sequence(directions: list):

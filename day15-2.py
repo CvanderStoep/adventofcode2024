@@ -1,3 +1,5 @@
+# https://github.com/TimHuisman1703/AdventOfCode/blob/master/2024/Day%2015/aoc15_2.py
+
 file = open("input\input15.txt")
 g, instrs = file.read().split("\n\n")
 file.close()

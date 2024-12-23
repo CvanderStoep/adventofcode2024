@@ -15,14 +15,14 @@ q = [(0, sx, sy, 1, 0, None)]
 visited = {}
 
 r = set([(sx, sy), (ex, ey)])
-best = -1
+best = 1000000
 
 while q:
     cost, x, y, dx, dy, prev = heapq.heappop(q)
 
     if x == ex and y == ey:
-        if best == -1:
-            best = cost
+        if cost < best:
+            cost = best
         if cost > best:
             break
 

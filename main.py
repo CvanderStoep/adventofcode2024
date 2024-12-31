@@ -21,3 +21,18 @@ if A_value.is_integer and B_value.is_integer:
     print(f'Integer Solutions: A = {int(A_value)}, B = {int(B_value)}')
 else:
     print('No integer solutions found.')
+
+import re
+
+# Pattern to match combinations of "aa" and "bb"
+pattern = r"^(aa|bb)+$"
+
+# Test strings
+test_strings = ["aabb", "aaaabbbb", "abab", "aaaa", "bbbb", "aaabb", "aabbab"]
+
+# Checking each string
+for string in test_strings:
+    if re.fullmatch(pattern, string):
+        print(f"'{string}' matches the pattern.")
+    else:
+        print(f"'{string}' does not match the pattern.")

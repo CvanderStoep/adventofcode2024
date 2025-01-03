@@ -1,5 +1,5 @@
 """
-maze solving, queue, BFS, shortest route, heapq in day20-heap
+maze solving, queue, BFS, shortest route, heapq in day20-heap, visualization in day20-heap
 """
 import itertools
 from collections import deque

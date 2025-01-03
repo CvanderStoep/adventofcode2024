@@ -1,3 +1,6 @@
+"""
+maze solving, queue, BFS, shortest route, heapq, visualization
+"""
 from collections import deque
 
 from tqdm import tqdm

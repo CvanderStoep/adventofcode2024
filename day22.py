@@ -67,15 +67,15 @@ def compute_part_two(file_name: str) -> int:
 
     secret_numbers = read_input_file(file_name)
     print(secret_numbers)
-    combinations = itertools.product(range(1), repeat=4)
+    combinations = itertools.product(range(-9, 10), repeat=4)
     max_bananas = 0
     i = 0
     for combo in combinations:
-        i += 1
-        if i % 100 == 0:
-            print(i)
+        # i += 1
+        # if i % 100 == 0:
+        #     print(i)
         sequence = list(combo)
-        sequence = [0, 2, -2, 2]
+        # sequence = [0, 2, -2, 2]
         total_bananas = 0
         for secret_number in secret_numbers:
             secrets = [secret_number]

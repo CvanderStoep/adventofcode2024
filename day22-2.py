@@ -15,11 +15,11 @@ for x in l:
         x = (x ^ (x // 32)) % 16777216
         x = (x ^ (x * 2048)) % 16777216
 
-        if i == -1:
-            pass
-            # seq = [x % 10] # corrected from the original solution
-        else:
-            seq = seq + [x % 10 - y % 10]
+        # if i == -1:
+        #     pass
+        #     # seq = [x % 10] # corrected from the original solution
+        # else:
+        seq = seq + [x % 10 - y % 10]
         if len(seq) > 4:
             seq = seq[1:]
 
@@ -32,4 +32,4 @@ max_key = max(d, key = d.get)
 max_value = d[max_key]
 print(max(d.values()))
 print(max_key, max_value)
-# print(d)
+print(len(d))

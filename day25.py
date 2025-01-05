@@ -16,7 +16,7 @@ def read_input_file(file_name: str) -> list:
     return locks, keys
 
 
-def key_fits(key: list, lock: list) -> bool:
+def key_lock_fit(key: list, lock: list) -> bool:
     cols = len(key[0])
     rows = len(key)
 
@@ -57,7 +57,7 @@ def compute_part_one(file_name: str) -> int:
     total_fits = 0
     for lock in locks:
         for key in keys:
-            if key_fits(key, lock):
+            if key_lock_fit(key, lock):
                 total_fits += 1
 
     return total_fits

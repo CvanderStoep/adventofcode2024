@@ -40,9 +40,9 @@ def compute_part_one(file_name: str) -> int:
     binary_number = ''
     for wire in wires:
         binary_number += str(get_wire_value(system_dictionary, wire))
-    print(f'{binary_number= }')
+    # print(f'{binary_number= }')
     decimal_number = int(binary_number, 2)
-    print(f'{decimal_number= }')
+    # print(f'{decimal_number= }')
 
     return decimal_number
 
@@ -52,9 +52,9 @@ def compute_part_two(file_name: str) -> int:
 
     wires = system_dictionary.keys()
 
-    for output_wire in wires:
-        if not isinstance(system_dictionary[output_wire],int):
-            print(output_wire)
+    # for output_wire in wires:
+    #     if not isinstance(system_dictionary[output_wire],int):
+    #         print(output_wire)
     x_wires = [wire for wire in wires if wire.startswith("x")]
     x_wires.sort(reverse=True)
     y_wires = [wire for wire in wires if wire.startswith("y")]
@@ -84,7 +84,7 @@ def compute_part_two(file_name: str) -> int:
 
     print(f'{x} & {y} = {bitwise_and}, {z=  } ({bitwise_and == z})')
 
-    return z
+    return "not yet implemented"
 
 
 if __name__ == '__main__':

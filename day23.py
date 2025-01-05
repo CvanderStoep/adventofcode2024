@@ -1,5 +1,11 @@
+"""
+graph networkx visualization itertools combinations fully connected components
+"""
+
 import itertools
 import networkx as nx
+import matplotlib.pyplot as plt
+import scipy as sp
 
 
 def read_input_file(file_name: str) -> list:
@@ -43,9 +49,9 @@ def compute_part_one_fast(file_name: str) -> int:
         if len(result3) != 0:
             for result in result3:
                 lan_party = (substring1, substring2, result)
-                lan_party = list(lan_party)
-                lan_party.sort()
-                lan_party = tuple(lan_party)
+                lan_party = tuple(sorted(list(lan_party)))  # sort the tuple to get rid of duplicates later
+                # lan_party.sort()
+                # lan_party = tuple(lan_party)
                 total_sets.add(lan_party)
 
     number_start_with_t = 0
@@ -79,10 +85,16 @@ def compute_part_two(file_name: str) -> int:
     pwd = ','.join(largest_fully_connected_component)
     print(f'{pwd= }')
 
+    # Draw the graph
+    nx.draw(G, with_labels=True, node_color='lightblue', node_size=50, font_size=6)
+
+    # Display the graph
+    plt.show()
+
     return pwd
 
 
 if __name__ == '__main__':
-    print(f"Part I-slow: {compute_part_one_slow('input/input23.txt')}")
+    # print(f"Part I-slow: {compute_part_one_slow('input/input23.txt')}")
     print(f"Part I-fast: {compute_part_one_fast('input/input23.txt')}")
     print(f"Part II: {compute_part_two('input/input23.txt')}")

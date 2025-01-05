@@ -106,7 +106,7 @@ def compute_part_two(file_name: str) -> int:
     robots = transform_input(content)
     rows, cols = 103, 101
     for i in range(1, 10001):
-        print(i)
+        # print(i)
         for robot in robots:
             update_robot_location(robot)
         if find_tree(robots, rows, cols):

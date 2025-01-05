@@ -1,8 +1,13 @@
+"""
+z3 solver Satisfiability
+pip install z3-solver
+"""
 from itertools import combinations
 from operator import and_, or_, xor
 
 import networkx as nx
 from z3 import BitVec, Extract, Solver, sat, unsat
+
 
 with open("input/input24.txt") as f:
     gs = [g.split("\n") for g in f.read().strip().split("\n\n")]
@@ -16,6 +21,8 @@ for line in gs[0]:
 str_to_op = {"AND": "and", "XOR": "^", "OR": "or"}
 for line in gs[1]:
     l = line.split()
+    co = f"def {l[4]}(): return {l[0]}() {str_to_op[l[1]]} {l[2]}()"
+    print(co)
     exec(f"def {l[4]}(): return {l[0]}() {str_to_op[l[1]]} {l[2]}()")
 
 print(sum(eval(f"z{i:02}()") * 2**i for i in range(46)))

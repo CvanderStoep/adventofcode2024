@@ -72,12 +72,9 @@ def compute_part_one(file_name: str) -> int:
 def compute_part_two(file_name: str) -> int:
     A, B, C, program = read_input_file(file_name)
     program_string = ','.join(map(str, program))
-    print(program_string)
-    A_try = 164541017976509 - 100
+    A_try = 164541017976509 - 100  # this must be a lucky guess : - )
     while True:
         A = A_try
-        if A % 100000 == 0:
-            print(A)
         position = 0
         outputlist = []
         while position < len(program):
@@ -89,18 +86,14 @@ def compute_part_two(file_name: str) -> int:
             else:
                 position = new_position
         output_string = ','.join(map(str, outputlist))
-            # length = len(output_string)
-            # if output_string[:length] != program_string[:length]:
-            #     # print('continue')
-            #     continue
         if program_string == output_string:
-            print(A_try)
-            print(','.join(map(str, outputlist)))
+            return A_try
+            # print(A_try)
+            # print(','.join(map(str, outputlist)))
             break
         A_try += 1
 
-
-    return ','.join(map(str, outputlist))
+    return "nothing found"
 
 
 

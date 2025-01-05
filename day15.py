@@ -78,14 +78,14 @@ def compute_part_one(file_name: str) -> int:
         location = move_robot(location, move, grid)
 
     sum_gps = calc_gps(grid)
-    print(f'{sum_gps= }')
+    # print(f'{sum_gps= }')
 
     return sum_gps
 
 
 def compute_part_two(file_name: str) -> int:
     grid, moves = read_input_file(file_name)
-    return 2
+    return "not yet implemented"
 
 
 if __name__ == '__main__':

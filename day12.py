@@ -81,14 +81,13 @@ def compute_part_one(file_name: str) -> int:
             price = calc_price(region)
             total_price += price
 
-    print(f'{total_price= }')
 
     return total_price
 
 
 def compute_part_two(file_name: str) -> int:
     inputs = read_input_file(file_name)
-    return 2
+    return "not yet implemented"
 
 
 if __name__ == '__main__':

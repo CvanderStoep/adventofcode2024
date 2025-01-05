@@ -17,7 +17,6 @@ def read_input_file(file_name: str) -> dict:
 
 
 def get_wire_value(system_dictionary: dict, value: str):
-
     if isinstance(system_dictionary[value], int):
         return system_dictionary[value]
     else:
@@ -49,10 +48,45 @@ def compute_part_one(file_name: str) -> int:
 
 
 def compute_part_two(file_name: str) -> int:
-    content = read_input_file(file_name)
-    return 2
+    system_dictionary = read_input_file(file_name)
+
+    wires = system_dictionary.keys()
+
+    for output_wire in wires:
+        if not isinstance(system_dictionary[output_wire],int):
+            print(output_wire)
+    x_wires = [wire for wire in wires if wire.startswith("x")]
+    x_wires.sort(reverse=True)
+    y_wires = [wire for wire in wires if wire.startswith("y")]
+    y_wires.sort(reverse=True)
+    z_wires = [wire for wire in wires if wire.startswith("z")]
+    z_wires.sort(reverse=True)
+
+    x_binary = ''
+    for wire in x_wires:
+        x_binary += str(get_wire_value(system_dictionary, wire))
+    x = int(x_binary, 2)
+    print(f'{x_binary= } ({x})')
+
+    y_binary = ''
+    for wire in y_wires:
+        y_binary += str(get_wire_value(system_dictionary, wire))
+    y = int(y_binary, 2)
+    print(f'{y_binary= } ({y})')
+
+    bitwise_and = int(x_binary, 2) & int(y_binary, 2)
+
+    z_binary = ''
+    for wire in z_wires:
+        z_binary += str(get_wire_value(system_dictionary, wire))
+    z = int(z_binary, 2)
+    print(f'{z_binary= } ({z})')
+
+    print(f'{x} & {y} = {bitwise_and}, {z=  } ({bitwise_and == z})')
+
+    return z
 
 
 if __name__ == '__main__':
     print(f"Part I: {compute_part_one('input/input24.txt')}")
-    # print(f"Part II: {compute_part_two('input/input24.txt')}")
+    print(f"Part II: {compute_part_two('input/input24.txt')}")
